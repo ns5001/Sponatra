@@ -1,0 +1,37 @@
+<% if flash.has?(:message) %>
+
+  <h2><%=flash[:message]%></h2>
+
+<% end %>
+
+<%if @playlist.songs.empty?%>
+<h3>It looks like your playlist <%=@playlist.name%> is empty</h3>
+<br>
+<a href="/users/home">Click here to return home</a>
+<br></br>
+<a href="/playlist/<%=@playlist.id%>/songadd">Click here to add songs to the playlist: <%=@playlist.name%></a>
+<br>
+<a href="/playlist/<%=@playlist.id%>/delete">Click here to delete the playlist: <%=@playlist.name%>, even though it will make <%=@playlist.name%> sad</a>
+
+<%else%>
+
+
+<h1><%=@playlist.name%></h1>
+<br></br>
+
+<%@playlist.songs.each do |song|%>
+<h3><a href="<%=song.spotify%>" target="_blank"><%=song.name%></a></h3>
+<a href="/playlists/<%=song.id%>/<%=@playlist.id%>/search">Search for playlists with songs like <%=song.name%></a>
+<%end%>
+<br></br>
+
+<br></br>
+<a href="/playlist/<%=@playlist.id%>/edit">Edit Playlist</a>
+<br></br>
+
+<a href="/users/home">Click here to return to your homepage</a>
+<br></br>
+
+<a href="/users/logout">Click here to logout</a>
+
+<%end%>

@@ -1,0 +1,24 @@
+<% if flash.has?(:message) %>
+
+  <h2><%=flash[:message]%></h2>
+
+<% end %>
+
+<h2>Welcome <%=@user.name%>!</h2>
+
+<% if @user.playlists.empty? %>
+<%= "You have no playlists :( " %>
+  <%else%>
+  <h3>Here are your playlists:</h3>
+  <%@user.playlists.each do |playlist|%>
+  <br></br>
+  <a href="/playlists/<%=playlist.id%>"><%=playlist.name%></a>
+  <br></br>
+  <%end%>
+<%end%>
+<br></br>
+<a href="/playlists/new">Create a new playlist</a>
+<br>
+<a href="/users/logout">Click here to logout</a>
+<br>
+<a href="/users/:id/edit">Click here to edit or delete your account</a>

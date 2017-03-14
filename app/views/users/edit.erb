@@ -1,0 +1,17 @@
+<h2>Edit your information here <%=@user.name%>:</h2>
+
+<h4>Old Name: <%=@user.name%></h4>
+<br>
+<h4>Old Email: <%=@user.email%></h4>
+<br>
+<h4>Old Password: Ha! You actually thought we would expose your password.</h4>
+<br>
+<form action="/users/<%=@user.id%>/edit" method="post">
+ <p>New Name: <input type="text" name="name"></p>
+ <p>New Email: <input type="text" name="email"></p>
+ <p>New Password: <input type="password" name="password"></p>
+ <p><button type="submit">Edit</button></p>
+</form>
+
+<br></br>
+<a href="/users/delete">Or click here to delete your account, we're sorry to see you go</a>

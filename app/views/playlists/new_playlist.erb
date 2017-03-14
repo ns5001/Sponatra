@@ -1,0 +1,21 @@
+<% if flash.has?(:message) %>
+
+  <h2><%=flash[:message]%></h2>
+
+<% end %>
+
+<h1>Add songs to your playlist:</h1>
+<br></br>
+<h2>Add up to 5 Songs, and name your new Playlist:</h2>
+<br></br>
+<form method=POST action="/playlists">
+  <p>Name your new playlist: <input type="text" name="playlist[name]"></p>
+  <br></br>
+  <p>Song Name: <input type="text" name="playlist[songs][]"></p>
+  <p>Anotha one: <input type="text" name="playlist[songs][]"></p>
+  <p>And... Anotha one: <input type="text" name="playlist[songs][]"></p>
+  <p>And.. Anotha one: <input type="text" name="playlist[songs][]"></p>
+  <p>One more, you can do it: <input type="text" name="playlist[songs][]"></p>
+  <br></br>
+  <p><button type="submit">Create!</button></p>
+</form>

@@ -1,0 +1,13 @@
+<h1>Add songs to your playlist:</h1>
+<br></br>
+<h2>Add up to 5 Songs:</h2>
+<br></br>
+<form method=POST action="/playlist/<%=@playlist.id%>/add">
+  <p>Song Name: <input type="text" name="playlist[songs][]"></p>
+  <p>Anotha one: <input type="text" name="playlist[songs][]"></p>
+  <p>And... Anotha one: <input type="text" name="playlist[songs][]"></p>
+  <p>And.. Anotha one: <input type="text" name="playlist[songs][]"></p>
+  <p>Finally...anotha one.: <input type="text" name="playlist[songs][]"></p>
+  <br></br>
+  <p><button type="submit">Add!</button></p>
+</form>

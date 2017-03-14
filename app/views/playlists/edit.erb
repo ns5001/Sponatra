@@ -1,0 +1,32 @@
+<%if @playlist.songs.empty?%>
+<h3>It looks like your playlist <%=@playlist.name%> is empty</h3>
+<br>
+<a href="/users/home">Click here to return home</a>
+<br></br>
+<a href="/playlist/<%=@playlist.id%>/songadd">Click here to add songs to the playlist: <%=@playlist.name%></a>
+<br>
+<a href="/playlist/<%=@playlist.id%>/delete">Click here to delete the playlist: <%=@playlist.name%>, even though it will make <%=@playlist.name%> sad</a>
+
+<%else%>
+
+<h2><%=@playlist.name%>'s current songs:</h2>
+
+<%@playlist.songs.each do |song|%>
+<h3><a href="<%=song.spotify%>" target="_blank"><%=song.name%></a></h3>
+<br>
+<a href='/playlist/<%=@playlist.id%>/<%=song.id%>/songdelete'>Delete</a>
+<br></br>
+<%end%>
+<br></br>
+
+<a href="/users/home">Click here to return home</a>
+<br></br>
+
+<a href="/playlists/<%=@playlist.id%>">Click here to go back to the playlist: <%=@playlist.name%></a>
+<br></br>
+
+<a href="/playlist/<%=@playlist.id%>/songadd">Click here to add songs to the playlist: <%=@playlist.name%></a>
+<br></br>
+
+<a href="/playlist/<%=@playlist.id%>/delete">Click here to delete the playlist: <%=@playlist.name%>, even though it will make <%=@playlist.name%> sad</a>
+<%end%>

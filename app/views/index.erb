@@ -1,0 +1,17 @@
+<% if flash.has?(:message) %>
+  <h2><%=flash[:message]%></h2>
+<% end %>
+
+<%if session[:id] != nil%>
+<%redirect to '/users/home'%>
+<%else%>
+
+<h1>Welcome to Sponatra!</h1>
+<h3>Our spin on your favorite music...</h3>
+<br></br>
+  <h4>Please login to your Sponatra account:</h4>
+  <a href="/users/login">Log In</a>
+<br></br>
+  <h4>Or create your new Sponatra account here!</h4>
+  <a href="/users/signup">Sign Up</a>
+<%end%>
